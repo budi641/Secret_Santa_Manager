@@ -1,4 +1,3 @@
-
 # Secret Santa Python Program
 
 This Python program facilitates a Secret Santa activity by randomly assigning each participant a person to buy a gift for and then sending them an email with their assignment.
@@ -8,7 +7,7 @@ This Python program facilitates a Secret Santa activity by randomly assigning ea
 - Input the names and emails of participants.
 - Randomly assign each participant a Secret Santa.
 - Send personalized emails to each participant with their Secret Santa assignment.
-  
+
 ## Requirements
 
 Before running the program, make sure you have the following dependencies installed:
@@ -28,7 +27,7 @@ pip install secure-smtplib
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/budi641/Secret_Santa_Manager.git
+   git clone https://github.com/budi641/Secret_Santa_Manager-python.git
    ```
 
 2. Navigate to the project folder:
@@ -41,9 +40,9 @@ pip install secure-smtplib
 
    ```python
    participants = {
-       'Alice': 'alice@example.com',
-       'Bob': 'bob@example.com',
-       'Charlie': 'charlie@example.com',
+       'Ahmed': 'ahmed@example.com',
+       'Ameen': 'ameen@example.com',
+       'Mazen': 'mazen@example.com',
        # Add more participants here
    }
    ```
@@ -55,7 +54,39 @@ pip install secure-smtplib
    sender_password = "your_email_password"
    ```
 
-   **Important:** For Gmail, you may need to enable "Less secure apps" or use an [app-specific password](https://support.google.com/accounts/answer/185833?hl=en).
+   **Important:** For Gmail, you may need to follow the steps below if you're encountering authentication errors.
+
+## Gmail Authentication Issues
+
+If you're using Gmail as your email provider and encounter authentication errors (e.g., `535, b'5.7.8 Username and Password not accepted'`), there are several potential causes and solutions:
+
+### 1. **Two-Factor Authentication (2FA) Enabled:**
+If you have Two-Factor Authentication (2FA) enabled on your Gmail account, you cannot use your regular Gmail password for SMTP login. You will need to generate an **App Password**.
+
+#### Steps to Generate an App Password:
+1. Go to your [Google Account Security Settings](https://myaccount.google.com/security).
+2. Under **"Signing in to Google"**, click on **"App passwords"**.
+3. Select **"Mail"** for the app and **"Windows Computer"** (or your desired device) for the device.
+4. Google will generate a 16-character password. Use this **App Password** in place of your regular Gmail password in the script.
+
+### 2. **Allow Less Secure Apps:**
+If you do not have 2FA enabled, you may need to enable access for less secure apps in your Google account to allow SMTP login. 
+
+#### Solution:
+- Go to the [Less secure apps settings page](https://myaccount.google.com/lesssecureapps).
+- Turn on **"Allow less secure apps"**.
+
+### 3. **Unlock Captcha:**
+If Google blocks login attempts due to suspicious activity, you may need to unlock the CAPTCHA for Gmail SMTP login.
+
+#### Solution:
+- Visit [this CAPTCHA URL](https://accounts.google.com/DisplayUnlockCaptcha) to unlock access.
+- After unlocking the CAPTCHA, try running the script again.
+
+### 4. **Check for Account Security Issues:**
+If you see security alerts from Google or face login issues, verify your account's security settings and review login activity. Google might block your login if it detects suspicious activity, and you may need to complete additional verification steps.
+
+---
 
 ## Running the Program
 
@@ -92,4 +123,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Python Standard Library for `smtplib` and `random`.
 - This project was created as part of a personal Secret Santa gift exchange program.
-```
